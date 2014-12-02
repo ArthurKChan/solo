@@ -1,10 +1,9 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
+<header class="goal" id="banner">
   <div class="container">
-    <h3>Robo Script!</h3>
-    <p class="lead">a programming game</p>
-    <img src="assets/images/robo.png" alt="I'm Robo" height="50px">
+    <h1>Goal</h1>
+    <p class="lead">Marvin is feeling very depressed. Help Marvin make a new friend by grabbing all the watermelon and bring it to the other robot!</p>
   </div>
 </header>
 
@@ -18,7 +17,7 @@
       </th>
       <tr ng-repeat='row in game.getGrid() track by $index'>
         <th>{{$index}}</th>
-        <td ng-repeat='item in row track by $index'><img src={{item}} id='tableImage'/></td>
+        <td ng-repeat='item in row track by $index'><img src={{item.image}} id='tableImage'/></td>
       </tr>
     </table>
   </div>

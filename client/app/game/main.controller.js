@@ -12,11 +12,17 @@ angular.module('mvpApp')
         var statement = steps.pop();
         statement = statement.split(' ');
 
-        $scope.game.move(statement[0], Number(statement[1]));
+        if ( statement[0] !== 'grab' && statement[0] !== 'gift'){
+          $scope.game.move(statement[0], Number(statement[1] || 1));
+
+        } else {
+          $scope.game[statement[0]]();
+        }
 
         if(steps.length > 0){
-          $timeout(function(){doSteps(steps)}, Number(statement[1]*500));
+          $timeout(function(){doSteps(steps)}, Number(statement[1])*500 || 500);
         }
+
       };
 
       doSteps(script);
