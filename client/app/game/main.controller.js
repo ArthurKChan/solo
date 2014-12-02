@@ -15,15 +15,19 @@ angular.module('mvpApp')
         if (statement[0] === 'repeat') {
           var subRoutine = [];
           var fullRoutine = [];
-          console.log(steps[steps.length-1]);
+          
           while( steps[steps.length-1] && steps[steps.length-1][0] === '-'){
             subRoutine.push( steps.pop().split('').splice(1).join('') );
           }
+          subRoutine = subRoutine.reverse();
+          
           for(var i=0; i<statement[1]; i++){
             fullRoutine = fullRoutine.concat(subRoutine);
           }
-          console.log('fullRoutine:',fullRoutine);
-          steps = fullRoutine.concat(steps);
+
+          steps = steps.concat(fullRoutine);
+          console.log('New script:', steps);
+          
           statement = steps.pop().split(' ');
         }
 

@@ -50,12 +50,15 @@ angular.module('mvpApp')
 
     var gift = function(){
       var loc = grid[robot.y][robot.x];
-      if (loc['goal'] && robot.cargo.length === 5) {
-        alert('Marvin befriended '+ loc['goal']);
+      if (loc['goal'] && robot.cargo.length >= 5) {
+        robot.cargo = [];
+        alert('Robo likes watermelon!\nMarvin befriended '+ loc['goal']);
       } else if (loc['goal'] && robot.cargo.length < 5) {
         alert('Not enough watermelon! '+loc['goal']+' rejected Marvin\'s offer of friendship!');
-      } else {
+      } else if (loc['goal']) {
         alert('Nobody is here...');
+      } else {
+        alert('uh oh.... MaRvIn SPLAT!');
       }
     }
 
@@ -71,7 +74,7 @@ angular.module('mvpApp')
       else if (loc['item']){ loc['image'] = itemImg; }
       else { loc['image'] = ''; }
       
-      if (robot.y > 0){ robot.y -= 1; console.log('moving up');}
+      if (robot.y > 0){ robot.y -= 1;}
       grid[ robot.y ][ robot.x ]['image'] = robotImg;
     }
 
@@ -81,7 +84,7 @@ angular.module('mvpApp')
       else if (loc['item']){ loc['image'] = itemImg; }
       else { loc['image'] = ''; }
 
-      if (robot.y < length-1){ robot.y += 1; console.log('moving down');}
+      if (robot.y < length-1){ robot.y += 1;}
       grid[ robot.y ][ robot.x ]['image'] = robotImg;
     }
 
@@ -91,7 +94,7 @@ angular.module('mvpApp')
       else if (loc['item']){ loc['image'] = itemImg; }
       else { loc['image'] = ''; }
 
-      if (robot.x > 0){ robot.x -= 1; console.log('moving left');}
+      if (robot.x > 0){ robot.x -= 1;}
       grid[ robot.y ][ robot.x ]['image'] = robotImg;
     }
 
@@ -101,7 +104,7 @@ angular.module('mvpApp')
       else if (loc['item']){ loc['image'] = itemImg; }
       else { loc['image'] = ''; }
 
-      if (robot.x < length-1){ robot.x += 1; console.log('moving right');}
+      if (robot.x < length-1){ robot.x += 1;}
       grid[ robot.y ][ robot.x ]['image'] = robotImg;
     }
 
