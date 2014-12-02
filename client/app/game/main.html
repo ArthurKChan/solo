@@ -1,0 +1,24 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h3>Robo Script!</h3>
+    <p class="lead">a programming game</p>
+    <img src="assets/images/robo.png" alt="I'm Robo" height="50px">
+  </div>
+</header>
+
+<div class='container grid'>
+  <table class="table table-bordered">
+    <tr ng-repeat='row in grid'>
+      <td ng-repeat='row in grid'>{{grid[1][3]}}</td>
+    </tr>
+  </table>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+      <p>Robo Script v0.0.1</p>
+  </div>
+</footer>

@@ -1,0 +1,34 @@
+.thing-form {
+    margin: 20px 0;
+}
+
+#banner {
+    border-bottom: none;
+    margin-top: -20px;
+}
+
+.hero-unit {
+    position: relative;
+    color: #F5F5F5;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+    background: #4393B9;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 70px;
+    border-top: 1px solid #E5E5E5;
+}
+
+.table {
+    height: 90%;
+}
+
+.grid {
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 600px;
+    height: 600px;
+}
