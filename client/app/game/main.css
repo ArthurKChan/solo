@@ -22,13 +22,12 @@
     border-top: 1px solid #E5E5E5;
 }
 
-.table {
-    height: 90%;
-}
-
 .grid {
     margin-top: 10px;
     margin-left: 10px;
-    width: 600px;
-    height: 600px;
+}
+
+.cmd {
+    margin-top: 10px;
+    margin-left: 10px;
 }
