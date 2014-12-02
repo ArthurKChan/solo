@@ -28,8 +28,10 @@
 
   <div class='container cmd col-md-4'>
     <h3>INPUT</h3>
-    <textarea rows='8' cols='50'></textarea>
-    <button>submit</button>
+    
+    <textarea rows='8' cols='50' ng-model='text'></textarea>
+    <button ng-click='game.runScript(text); text="";'>submit</button>
+    
     <button ng-click='game.move("up")'>move up</button>
     <button ng-click='game.move("down")'>move down</button>
     <button ng-click='game.move("left")'>move left</button>

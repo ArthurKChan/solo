@@ -63,7 +63,7 @@ angular.module('mvpApp')
       game : {
         getGrid: getGrid,
         initRobot: initRobot,
-        move: move
+        move: move,
       }
     };
   });
