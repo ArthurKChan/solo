@@ -32,9 +32,19 @@
     margin-left: 10px;
 }
 
+#tableImage{
+    height: 35px;
+    width: 35px;
+}
 
-#marvin{
-    height: 20px;
-    width: 20px;
-    margin-right: -3px;
+.table{
+    width: 560px;
+    height: 560px;
+    table-layout: fixed;
+}
+
+td{
+    background-color:grey;
+    overflow: hidden;
+    padding: 0px !important;
 }

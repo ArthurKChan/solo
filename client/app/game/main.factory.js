@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mvpApp')
-  .factory('Game', function () {
+  .factory('Game', function ($timeout) {
     var robot = {x:0 ,y:0};
     var grid = [];
     var length = 16;
@@ -30,7 +30,8 @@ angular.module('mvpApp')
       return grid;
     };
 
-    var initRobot = function(x,y){
+    var setRobot = function(x,y){
+      grid[ robot.y ][ robot.x ] = null;
       if (x && y) {
         robot.x = x;
         robot.y = y;
@@ -63,19 +64,35 @@ angular.module('mvpApp')
       grid[ robot.y ][ robot.x ] = robotImg;
     }
 
-    var move = function(string){
-      if (string === 'up'){ moveUp();}
-      if (string === 'down'){ moveDown();}
-      if (string === 'left'){ moveLeft();}
-      if (string === 'right'){ moveRight();} 
+    var move = function(string, count){
+      var action;
+      if (string === 'up'){ action = moveUp;}
+      if (string === 'down'){ action = moveDown;}
+      if (string === 'left'){ action = moveLeft;}
+      if (string === 'right'){ action = moveRight;}
+
+      if (count === undefined){
+        action();
+      }
+      else if (count) {
+        action();
+        $timeout(function(){move(string, count-1)}, 500);
+      } else {
+        return;
+      }
     }
     //End of robot controls**************************************
+
+
+    //init robot*********************
+    setRobot(4,4);
+    setGoal(12,13);
 
     return {
       game : {
         getGrid: getGrid,
         setGoal: setGoal,
-        initRobot: initRobot,
+        setRobot: setRobot,
         move: move,
       }
     };

@@ -11,9 +11,6 @@
 <div class='row'>
   
   <div class='container grid col-md-7'>
-  <!--   <div ng-repeat='row in grid track by $index'>
-      <span ng-repeat='item in row track by $index'>{{item}}</span>
-    </div> -->
     <table class="table table-bordered">
       <th></th>
       <th ng-repeat='row in game.getGrid() track by $index'>
@@ -21,7 +18,7 @@
       </th>
       <tr ng-repeat='row in game.getGrid() track by $index'>
         <th>{{$index}}</th>
-        <td ng-repeat='item in row track by $index'><img src={{item}} id='marvin'/></td>
+        <td ng-repeat='item in row track by $index'><img src={{item}} id='tableImage'/></td>
       </tr>
     </table>
   </div>
@@ -31,11 +28,7 @@
     
     <textarea rows='8' cols='40' ng-model='text'></textarea>
     <button ng-click='game.runScript(text); text="";'>submit</button>
-    
-    <button ng-click='game.move("up")'>move up</button>
-    <button ng-click='game.move("down")'>move down</button>
-    <button ng-click='game.move("left")'>move left</button>
-    <button ng-click='game.move("right")'>move right</button>
+
   </div>
 
 </div>
