@@ -4,9 +4,8 @@ angular.module('mvpApp')
   .controller('GameCtrl', function ($scope, Game, $timeout) {
     angular.extend($scope, Game);    
     $scope.game.initRobot(1,5);
-    $scope.logText = function(text){
-      console.log(text);
-    }
+    $scope.game.setGoal(10,10);
+
     $scope.game.runScript = function(string){
       console.log(string.split('\n'));
       var script = string.split('\n').reverse();
@@ -20,4 +19,5 @@ angular.module('mvpApp')
 
       doSteps(script);
     }
+
   });

@@ -5,6 +5,14 @@ angular.module('mvpApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    },
+    {
+      'title':'Game',
+      'link':'/game'
+    },
+    {
+      'title' : 'How to Play',
+      'link':'/instructions'
     }];
 
     $scope.isCollapsed = true;
