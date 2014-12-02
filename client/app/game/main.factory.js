@@ -9,15 +9,6 @@ angular.module('mvpApp')
     var goalImg = '../../assets/images/robo.png';
     var itemImg = '../../assets/images/melon.png';
 
-    // set up board
-    // any even = wall
-    // both odds = space
-    for(var i=0; i<length; i++){
-      grid[i] = []
-      for(var j=0; j<length; j++){
-        grid[i][j] = {};
-      }
-    }
 
     var setGoal = function(x,y){
       if (x && y) {
@@ -76,7 +67,8 @@ angular.module('mvpApp')
     // Robot controls ************************************************
     var moveUp = function(){
       var loc = grid[robot.y][robot.x];
-      if (loc['item']){ loc['image'] = itemImg; }
+      if (loc['goal']){ loc['image'] = goalImg; }
+      else if (loc['item']){ loc['image'] = itemImg; }
       else { loc['image'] = ''; }
       
       if (robot.y > 0){ robot.y -= 1; console.log('moving up');}
@@ -85,7 +77,8 @@ angular.module('mvpApp')
 
     var moveDown = function(){
       var loc = grid[robot.y][robot.x];
-      if (loc['item']){ loc['image'] = itemImg; }
+      if (loc['goal']){ loc['image'] = goalImg; }
+      else if (loc['item']){ loc['image'] = itemImg; }
       else { loc['image'] = ''; }
 
       if (robot.y < length-1){ robot.y += 1; console.log('moving down');}
@@ -94,7 +87,8 @@ angular.module('mvpApp')
 
     var moveLeft = function(){
       var loc = grid[robot.y][robot.x];
-      if (loc['item']){ loc['image'] = itemImg; }
+      if (loc['goal']){ loc['image'] = goalImg; }
+      else if (loc['item']){ loc['image'] = itemImg; }
       else { loc['image'] = ''; }
 
       if (robot.x > 0){ robot.x -= 1; console.log('moving left');}
@@ -103,7 +97,8 @@ angular.module('mvpApp')
 
     var moveRight = function(){
       var loc = grid[robot.y][robot.x];
-      if (loc['item']){ loc['image'] = itemImg; }
+      if (loc['goal']){ loc['image'] = goalImg; }
+      else if (loc['item']){ loc['image'] = itemImg; }
       else { loc['image'] = ''; }
 
       if (robot.x < length-1){ robot.x += 1; console.log('moving right');}
@@ -123,7 +118,7 @@ angular.module('mvpApp')
 
       else if (count) {
         action();
-        $timeout(function(){move(string, count-1)}, 500);
+        $timeout(function(){move(string, count-1)}, 250);
       } else {
         return;
       }
@@ -131,18 +126,32 @@ angular.module('mvpApp')
     //End of robot controls**************************************
 
 
-    //init robot*********************
-    setRobot(1,1);
-    setGoal(1,14);
+    // set up board
+    // any even = wall
+    // both odds = space
+    var resetState = function(){
+      for(var i=0; i<length; i++){
+        grid[i] = []
+        for(var j=0; j<length; j++){
+          grid[i][j] = {};
+        }
+      }
+      //init board pieces*********************
+      setRobot(1,1);
+      setGoal(1,14);
 
-    setItem(5,2);
-    setItem(9,3);
-    setItem(13,4);
-    setItem(11,7);
-    setItem(9,10);
+      setItem(5,2);
+      setItem(9,3);
+      setItem(13,4);
+      setItem(11,7);
+      setItem(9,10);
+    }
+
+    resetState();
 
     return {
       game : {
+        resetState: resetState,
         getGrid: getGrid,
         move: move,
         grab: grab,
