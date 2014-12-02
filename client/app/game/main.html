@@ -21,7 +21,7 @@
       </th>
       <tr ng-repeat='row in game.getGrid() track by $index'>
         <th>{{$index}}</th>
-        <td ng-repeat='item in row track by $index'>{{item}}</td>
+        <td ng-repeat='item in row track by $index'><img src={{item}} id='marvin'/></td>
       </tr>
     </table>
   </div>

@@ -5,6 +5,7 @@ angular.module('mvpApp')
     var robot = {x:0 ,y:0};
     var grid = [];
     var length = 16;
+    var img = '../../assets/images/marvin2.png';
 
     // set up board
     // any even = wall
@@ -25,31 +26,31 @@ angular.module('mvpApp')
         robot.x = x;
         robot.y = y;
       }
-      grid[ robot.y ][ robot.x ] = 'X';
+      grid[ robot.y ][ robot.x ] = img;
     };
 
     var moveUp = function(){
       grid[ robot.y ][ robot.x ] = null;
       if (robot.y > 0){ robot.y -= 1; console.log('moving up');}
-      grid[ robot.y ][ robot.x ] = 'X';
+      grid[ robot.y ][ robot.x ] = img;
     }
 
     var moveDown = function(){
       grid[ robot.y ][ robot.x ] = null;
       if (robot.y < length-1){ robot.y += 1; console.log('moving down');}
-      grid[ robot.y ][ robot.x ] = 'X';
+      grid[ robot.y ][ robot.x ] = img;
     }
 
     var moveLeft = function(){
       grid[ robot.y ][ robot.x ] = null;
       if (robot.x > 0){ robot.x -= 1; console.log('moving left');}
-      grid[ robot.y ][ robot.x ] = 'X';
+      grid[ robot.y ][ robot.x ] = img;
     }
 
     var moveRight = function(){
       grid[ robot.y ][ robot.x ] = null;
       if (robot.x < length-1){ robot.x += 1; console.log('moving right');}
-      grid[ robot.y ][ robot.x ] = 'X';
+      grid[ robot.y ][ robot.x ] = img;
     }
 
     var move = function(string){
